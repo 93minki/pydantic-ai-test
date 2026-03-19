@@ -1,0 +1,19 @@
+# macOS
+.DS_Store
+
+# env
+.env
+.env.*
+
+# python
+__pycache__/
+*.py[cod]
+
+# virtualenv
+.venv/
+
+# generated outputs
+generated_videos/
+
+# editor / misc
+*.log
