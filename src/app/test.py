@@ -1,7 +1,6 @@
 from dataclasses import dataclass
-from typing import Literal, Optional
 from pydantic import BaseModel, Field
-from pydantic_ai import Agent, ModelRetry, RunContext
+from pydantic_ai import Agent, RunContext
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -32,7 +31,7 @@ class QuoteResult(BaseModel):
     summary: str = Field(description="사용자에게 보여줄 최종 요약 문장")
     items: list[QuoteItem] = Field(description="견적에 포함된 상품 목록")
     subtotal: int = Field(ge=0, description="상품 금액 합계")
-    shipping_fee: int = Field(get=0, description="배송비")
+    shipping_fee: int = Field(gt=0, description="배송비")
     total: int = Field(ge=0, description="최종 결제 예상 금액")
     unavailable_reasons: list[str] = Field(
         default_factory=list,
